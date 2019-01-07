@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="timer.css"/>
+</head>
+<body>
+<!--Containers for positioning the timer-->
+<div class="outer-container">
+    <div class="inner-container">
+        <!--This will show the timer value-->
+        <div class="timer-counter">
+             <div class="timer-counter_hours">00</div>
+            <div class="timer-counter_delimiter delimiter_minutes">:</div>
+            <div class="timer-counter_minutes">00</div>
+            <div class="timer-counter_delimiter delimiter_seconds">:</div>
+            <div class="timer-counter_seconds">00</div>
+        </div>
+        <div class="timer-controls">
+            <!--Buttons for controlling the timer-->
+            <!--Pause and continue timer-->
+            <button class="timer-control timer-control_pause">
+                <img src="icons/pause.svg" alt="Pause/Play">
+            </button>
+            <!--Start timer-->
+            <button class="timer-control timer-control_start active">
+                <img src="icons/play.svg" alt="Start">
+            </button>
+            <!--Stop timer-->
+            <button class="timer-control timer-control_stop">
+                <img src="icons/stop.svg" alt="Stop">
+            </button>
+        </div>
+    </div>
+</div>
+<script src="timer.js"></script>
+</body>
+</html>

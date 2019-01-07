@@ -1,0 +1,73 @@
+
+body{
+    height: 100%;
+    width: 100%;
+    background-color: white;
+}
+
+
+.outer-container{
+    width: 500px;
+    height: 300px;
+    margin: 200px auto;
+    background-color: black;
+}
+
+.inner-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-counter{
+    width: 70%;
+    height: 20%;
+    margin: 25px 0;
+    background-color: white;
+    font-family: "roboto", monospace;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.timer-counter_hours,
+.timer-counter_minutes,
+.timer-counter_seconds,
+.timer-counter_delimiter{
+    font-size: 36px;
+}
+
+
+.timer-controls{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-control_start,.timer-control_pause,.timer-control_stop{
+    height: 64px;
+    width: 64px;
+    border-radius: 50%;
+    border: none;
+    outline: none;
+}
+.timer-control_start{
+    margin: 0 25px;
+    height: 92px;
+    width: 92px;
+}
+
+.timer-control_start>img,.timer-control_pause>img,.timer-control_stop>img{
+    height: 36px;
+}
+.timer-control_start>img{
+    height: 54px;
+}
+.timer-control_start.active,
+.timer-control_pause.active,
+.timer-control_stop.active{
+    /*border: deepskyblue 4px solid;*/
+}
