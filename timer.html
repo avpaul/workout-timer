@@ -11,7 +11,7 @@
     <div class="inner-container">
         <!--This will show the timer value-->
         <div class="timer-counter">
-             <div class="timer-counter_hours">00</div>
+            <div class="timer-counter_hours">00</div>
             <div class="timer-counter_delimiter delimiter_minutes">:</div>
             <div class="timer-counter_minutes">00</div>
             <div class="timer-counter_delimiter delimiter_seconds">:</div>
@@ -20,16 +20,22 @@
         <div class="timer-controls">
             <!--Buttons for controlling the timer-->
             <!--Pause and continue timer-->
-            <button class="timer-control timer-control_pause">
-                <img src="icons/pause.svg" alt="Pause/Play">
+            <button class="timer-control timer-control_pause inactive">
+                <svg viewBox="0 0 24 24">
+                    <path d="M14,19H18V5H14M6,19H10V5H6V19Z" />
+                </svg>
             </button>
             <!--Start timer-->
             <button class="timer-control timer-control_start active">
-                <img src="icons/play.svg" alt="Start">
+                <svg viewBox="0 0 24 24">
+                    <path d="M8,5.14V19.14L19,12.14L8,5.14Z" />
+                </svg>
             </button>
             <!--Stop timer-->
-            <button class="timer-control timer-control_stop">
-                <img src="icons/stop.svg" alt="Stop">
+            <button class="timer-control timer-control_stop inactive">
+                <svg viewBox="0 0 24 24">
+                    <path d="M18,18H6V6H18V18Z" />
+                </svg>
             </button>
         </div>
     </div>

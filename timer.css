@@ -60,14 +60,22 @@ body{
     width: 92px;
 }
 
-.timer-control_start>img,.timer-control_pause>img,.timer-control_stop>img{
+.timer-control_pause>svg,
+.timer-control_stop>svg{
     height: 36px;
+    width: 36px;
 }
-.timer-control_start>img{
+.timer-control_start>svg{
     height: 54px;
+    width: 54px;
 }
-.timer-control_start.active,
-.timer-control_pause.active,
-.timer-control_stop.active{
-    /*border: deepskyblue 4px solid;*/
+.timer-control_start.active>svg,
+.timer-control_pause.active>svg,
+.timer-control_stop.active>svg{
+    fill: #000000
+}
+.timer-control_start.inactive>svg,
+.timer-control_pause.inactive>svg,
+.timer-control_stop.inactive>svg{
+    fill: #888888
 }

@@ -31,30 +31,30 @@ class WorkoutTimer{
             }
         };
 
-         let v = value;
-         if(v>60){
-             let n = (v/60);
-             if (n < 60) {
-                 this.ui.minutes.innerText = leftPad(Math.floor(n));
-                 this.ui.seconds.innerText = leftPad(v-(Math.floor(n)*60))
-             } else if (n > 60){
-                 this.ui.hours.innerText = leftPad(Math.floor(n/60));
-                 this.ui.minutes.innerText = leftPad(Math.floor(n - (60 * Math.floor(n/60))));
-                 this.ui.seconds.innerText = leftPad(v - ( 60 * Math.floor(n)))
-             } else if (n === 60){
-                 this.ui.hours.innerText = "01";
-                 this.ui.minutes.innerText = "00";
-                 this.ui.seconds.innerText = "00"
-             }
-         }
-         // if the number of seconds are under 60
-         else if (v<60){
-             this.ui.seconds.innerText = leftPad(v);
-         } else if(v === 60){
-             // if the number of seconds === 60
-             this.ui.seconds.innerText = "00";
-             this.ui.minutes.innerText = leftPad(1);
-         }
+        let v = value;
+        if(v>60){
+            let n = (v/60);
+            if (n < 60) {
+                this.ui.minutes.innerText = leftPad(Math.floor(n));
+                this.ui.seconds.innerText = leftPad(v-(Math.floor(n)*60))
+            } else if (n > 60){
+                this.ui.hours.innerText = leftPad(Math.floor(n/60));
+                this.ui.minutes.innerText = leftPad(Math.floor(n - (60 * Math.floor(n/60))));
+                this.ui.seconds.innerText = leftPad(v - ( 60 * Math.floor(n)))
+            } else if (n === 60){
+                this.ui.hours.innerText = "01";
+                this.ui.minutes.innerText = "00";
+                this.ui.seconds.innerText = "00"
+            }
+        }
+        // if the number of seconds are under 60
+        else if (v<60){
+            this.ui.seconds.innerText = leftPad(v);
+        } else if(v === 60){
+            // if the number of seconds === 60
+            this.ui.seconds.innerText = "00";
+            this.ui.minutes.innerText = leftPad(1);
+        }
 
     }
     // this starts or restarts(when it was stopped) the timer
@@ -65,12 +65,19 @@ class WorkoutTimer{
         }
         // reset the ui to zeros if state is stopped
         if (this.state === "stopped") {
-        this.ui.seconds.innerHTML = "00";
-        this.ui.minutes.innerText = "00";
-        this.ui.hours.innerText = "00";
+            this.ui.seconds.innerHTML = "00";
+            this.ui.minutes.innerText = "00";
+            this.ui.hours.innerText = "00";
         }
         this.counter = this.timer.call(this);
         this.state = "active";
+        // update the ui on control buttons
+        this.controls.start.classList.remove('active');
+        this.controls.start.classList.add('inactive');
+        this.controls.pause.classList.remove('inactive');
+        this.controls.pause.classList.add('active');
+        this.controls.stop.classList.remove('inactive');
+        this.controls.stop.classList.add('active');
     }
 
     // check the timer state if active pause it
@@ -78,7 +85,11 @@ class WorkoutTimer{
         // check if the state is active then pause
         if (this.state === "active") {
             clearInterval(this.counter);
-            this.state = "paused"
+            this.state = "paused";
+            this.controls.start.classList.remove('inactive');
+            this.controls.start.classList.add('active');
+            this.controls.pause.classList.remove('active');
+            this.controls.pause.classList.add('inactive');
         }
     }
 
@@ -95,6 +106,12 @@ class WorkoutTimer{
             this.state = 'stopped';
             clearInterval(this.counter);
             this.value = 0;
+            this.controls.pause.classList.remove('active');
+            this.controls.pause.classList.add('inactive');
+            this.controls.stop.classList.remove('active');
+            this.controls.stop.classList.add('inactive');
+            this.controls.start.classList.remove('inactive');
+            this.controls.start.classList.add('active');
         }
     }
 
